@@ -8,6 +8,6 @@ public interface IUserService {
     User userRegistration(String userId, String userName);
     List<User> getAllUsers();
     User getUser(String userId);
-    User deleteUser(String userId);
+    void deleteUser(String userId);
     User updateScoreOfUser(String userId, int score);
 }
