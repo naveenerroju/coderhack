@@ -12,16 +12,31 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for managing users.
+ */
 @Service
 public class UserService implements IUserService {
 
     private final UserRepository repository;
 
+    /**
+     * Constructs a new UserService with the given UserRepository.
+     *
+     * @param repository the UserRepository to use for data access
+     */
     public UserService(UserRepository repository) {
         this.repository = repository;
     }
 
 
+    /**
+     * Registers a new user with the given userId and userName.
+     *
+     * @param userId the ID of the user
+     * @param userName the name of the user
+     * @return the registered User
+     */
     @Override
     public User userRegistration(String userId, String userName) {
         String[] badges = new String[]{CommonUtility.getBadge(0)};
@@ -29,6 +44,11 @@ public class UserService implements IUserService {
         return CommonUtility.mapUserEntityToModel(response);
     }
 
+    /**
+     * Retrieves all users and sorts them by score in descending order.
+     *
+     * @return a list of all users sorted by score
+     */
     @Override
     public List<com.naveen.coderhack.model.User> getAllUsers() {
         List<UserEntity> userEntityList = repository.findAll();
@@ -41,6 +61,13 @@ public class UserService implements IUserService {
         return users;
     }
 
+    /**
+     * Retrieves a user by their userId.
+     *
+     * @param userId the ID of the user to retrieve
+     * @return the User with the given userId
+     * @throws BusinessException if the userId does not exist
+     */
     @Override
     public com.naveen.coderhack.model.User getUser(String userId) {
         Optional<UserEntity> userEntity = repository.findById(userId);
@@ -51,6 +78,12 @@ public class UserService implements IUserService {
         }
     }
 
+    /**
+     * Deletes a user by their userId.
+     *
+     * @param userId the ID of the user to delete
+     * @throws BusinessException if the userId does not exist
+     */
     @Override
     public void deleteUser(String userId) {
         Optional<UserEntity> userEntity = repository.findById(userId);
@@ -61,6 +94,14 @@ public class UserService implements IUserService {
         }
     }
 
+    /**
+     * Updates the score of a user with the given userId.
+     *
+     * @param userId the ID of the user to update
+     * @param score the new score to set
+     * @return the updated User
+     * @throws BusinessException if the userId does not exist
+     */
     @Override
     public com.naveen.coderhack.model.User updateScoreOfUser(String userId, int score) {
         Optional<UserEntity> userEntityOpt = repository.findById(userId);
