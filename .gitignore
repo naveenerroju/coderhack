@@ -1,0 +1,125 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Eclipse specific files
+*.launch
+.settings/
+.metadata/
+bin/
+*.bak
+*.swp
+
+# Idea specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VSCode specific files
+.vscode/
+
+# Intellij files
+*.ipr
+*.iws
+*.iml
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Spring Boot devtools
+spring-boot-devtools.jar
+
+# Temporary files
+*.tmp
+
+# Tomcat specific
+*.war
+*.ear
+
+# Node / NPM related
+node_modules/
+
+# JetBrains IDEs
+*.idea/
+*.ijwb/
+
+# Build directories
+/target/
+/out/
+
+# Ignore Maven Wrapper
+/.mvn/wrapper/maven-wrapper.properties
+/.mvn/wrapper/maven-wrapper.jar
+
+# Local environment settings
+.env
+*.env
+
+# Ignore log files
+*.log
+
+# Ignore temp files
+*.swp
+*.bak
+*.tmp
+*.temp
+
+# Ignore database files
+*.db
+
+# Ignore Mac system files
+.DS_Store
+
+# Generated files
+generated/
+*.class
+
+# JetBrains Rider
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/**/tasks.xml
+.idea/**/workspace.xml
+.idea/**/modules.xml
+.idea/**/vcs.xml
+.idea/shelf/
+
+# Additional build artifacts
+*.out
+*.snap
+*.ser
+*.db
+*.sqlite
