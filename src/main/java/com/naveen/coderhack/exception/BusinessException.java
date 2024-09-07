@@ -1,9 +1,11 @@
 package com.naveen.coderhack.exception;
 
+import com.naveen.coderhack.model.Error;
+
 public class BusinessException extends RuntimeException {
 
-    public BusinessException(String message){
-        super(message);
+    public BusinessException(Error message){
+        super(String.valueOf(message));
     }
 
 }

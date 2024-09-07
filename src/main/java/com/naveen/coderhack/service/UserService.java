@@ -3,6 +3,7 @@ package com.naveen.coderhack.service;
 import com.naveen.coderhack.constants.Constants;
 import com.naveen.coderhack.entity.UserEntity;
 import com.naveen.coderhack.exception.BusinessException;
+import com.naveen.coderhack.model.Error;
 import com.naveen.coderhack.model.User;
 import com.naveen.coderhack.repository.UserRepository;
 import com.naveen.coderhack.utils.BadgesUtility;
@@ -76,7 +77,7 @@ public class UserService implements IUserService {
         if(userEntity.isPresent()){
             return CommonUtility.mapUserEntityToModel(userEntity.get());
         } else {
-            throw new BusinessException("UserId doesn't exist");
+            throw new BusinessException(Error.USER_NOT_FOUND);
         }
     }
 
@@ -92,7 +93,7 @@ public class UserService implements IUserService {
         if(userEntity.isPresent()){
             repository.delete(userEntity.get());
         } else {
-            throw new BusinessException("UserId doesn't exist");
+            throw new BusinessException(Error.USER_NOT_FOUND);
         }
     }
 
@@ -117,7 +118,7 @@ public class UserService implements IUserService {
             UserEntity response = repository.save(entity);
             return CommonUtility.mapUserEntityToModel(response);
         } else {
-            throw new BusinessException("UserId doesn't exist");
+            throw new BusinessException(Error.USER_NOT_FOUND);
         }
     }
 }
