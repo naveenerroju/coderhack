@@ -7,8 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import java.util.List;
+
+@Document("users")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,6 +30,6 @@ public class UserEntity {
     private int score;
 
     @Size(min = 1, max = 3, message = "Array must contain between 1 and 3 elements")
-    private String[] badges;
+    private List<String> badges;
 
 }

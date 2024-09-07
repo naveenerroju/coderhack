@@ -1,9 +1,11 @@
 package com.naveen.coderhack.service;
 
+import com.naveen.coderhack.constants.Constants;
 import com.naveen.coderhack.entity.UserEntity;
 import com.naveen.coderhack.exception.BusinessException;
 import com.naveen.coderhack.model.User;
 import com.naveen.coderhack.repository.UserRepository;
+import com.naveen.coderhack.utils.BadgesUtility;
 import com.naveen.coderhack.utils.CommonUtility;
 import org.springframework.stereotype.Service;
 
@@ -39,8 +41,8 @@ public class UserService implements IUserService {
      */
     @Override
     public User userRegistration(String userId, String userName) {
-        String[] badges = new String[]{CommonUtility.getBadge(0)};
-        UserEntity response = repository.save(new UserEntity(userId, userName, 0, badges));
+        List<String> badges = List.of(BadgesUtility.getBadge(Constants.DEFAULT_SCORE));
+        UserEntity response = repository.save(new UserEntity(userId, userName, Constants.DEFAULT_SCORE, badges));
         return CommonUtility.mapUserEntityToModel(response);
     }
 
@@ -106,8 +108,12 @@ public class UserService implements IUserService {
     public com.naveen.coderhack.model.User updateScoreOfUser(String userId, int score) {
         Optional<UserEntity> userEntityOpt = repository.findById(userId);
         if(userEntityOpt.isPresent()){
+
             UserEntity entity = userEntityOpt.get();
+            //updating score and badges accordingly
             entity.setScore(score);
+            entity.setBadges(BadgesUtility.updateBadges(entity.getBadges(), score));
+
             UserEntity response = repository.save(entity);
             return CommonUtility.mapUserEntityToModel(response);
         } else {

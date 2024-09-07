@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -45,7 +46,7 @@ public class User implements Comparable<User> {
     private int score;
 
     @Size(min = 1, max = 3, message = "Array must contain between 1 and 3 elements")
-    private String[] badges;
+    private List<String> badges;
 
     @Override
     public int compareTo(User user) {
