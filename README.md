@@ -154,29 +154,7 @@ mvn test
 
 ## Postman Collection
 
-For easier testing, import the following [Postman Collection](https://www.postman.com/coderhack-leaderboard-api-testing).
-
----
-
-## Project Structure
-
-```
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── com
-│   │   │   │   ├── coderhack
-│   │   │   │   │   ├── controller
-│   │   │   │   │   ├── service
-│   │   │   │   │   ├── repository
-│   │   │   │   │   ├── model
-│   ├── test
-│   │   ├── java
-│   │   │   ├── com
-│   │   │   │   ├── coderhack
-├── pom.xml
-└── README.md
-```
+For easier testing, import the following from resource folder.
 
 ---
 

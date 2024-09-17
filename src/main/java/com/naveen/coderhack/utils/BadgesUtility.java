@@ -2,6 +2,7 @@ package com.naveen.coderhack.utils;
 
 import com.naveen.coderhack.constants.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BadgesUtility {
@@ -19,12 +20,20 @@ public class BadgesUtility {
         }
     }
 
-    public static List<String> updateBadges(List<String> badges, int score){
+    /**
+     * returns the list is mutable by creating a new ArrayList if it's immutable
+     * @param badges list of badges
+     * @param score score integer
+     * @return mutable list of updated badges
+     */
+    public static List<String> updateBadges(List<String> badges, int score) {
+        List<String> mutableBadges = new ArrayList<>(badges);
+
         String respectiveBadge = getBadge(score);
-        if(!badges.contains(respectiveBadge) && badges.size()<3){
-            badges.add(respectiveBadge);
+        if (!mutableBadges.contains(respectiveBadge) && mutableBadges.size() < 3) {
+            mutableBadges.add(respectiveBadge);
         }
-        return badges;
+        return mutableBadges;
     }
 
 }
