@@ -81,16 +81,6 @@ A user can receive multiple badges based on score progression.
 
 ---
 
-## Error Handling
-
-- **Validation**: Score must be between 0 and 100. Other constraints include the unique constraint on the user’s `User ID`.
-- **Error Codes**:
-  - **400 Bad Request**: When invalid input is provided, such as an invalid score.
-  - **404 Not Found**: When trying to retrieve or update a non-existent user.
-  - **409 Conflict**: When a user with the same ID already exists.
-
----
-
 ## Technologies
 
 - **Java 17**
